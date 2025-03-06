@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Blogging Page</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7f6;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header img {
+        max-height: 100px;
+        max-width: 100px;
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+      margin-top: 0;
+      font-size: 2.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    #blog-form {
+      margin: 20px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      width: 80%;
+      max-width: 700px;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    #blog-form label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #34495e;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="date"], textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: 1px solid #bdc3c7;
+      font-size: 1rem;
+    }
+
+    textarea {
+      height: 200px;
+      resize: none;
+    }
+
+    button {
+      background-color: #27ae60;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      margin-right: 10px;
+    }
+
+    button:hover {
+      background-color: #2ecc71;
+    }
+
+    button:active {
+      background-color: #16a085;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    nav a {
+            color: #04271e;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Logo">
+    <h1>Your Fintech Hub</h1>
+  </header>
+
+  <div id="blog-form">
+    <label for="blog-heading">Blog Heading:</label>
+    <input type="text" id="blog-heading" placeholder="Enter your blog heading">
+
+    <label for="blog-content">Blog Content:</label>
+    <textarea id="blog-content" placeholder="Write your blog content"></textarea>
+
+    <label for="publish-date">Publish Date:</label>
+    <input type="date" id="publish-date">
+
+    <div class="button-container">
+      <button onclick="saveBlog()">Save</button>
+      <button onclick="submitBlog()">Submit</button>
+      <button onclick="publishBlog()">Publish</button>
+      <nav>
+        <a href="webpage1.html">Home</a>
+    </nav>
+    </div>
+  </div>
+
+  <script>
+    function saveBlog() {
+      alert('Blog saved!');
+    }
+
+    function submitBlog() {
+      alert('Blog submitted!');
+    }
+
+    function publishBlog() {
+      var publishDate = document.getElementById('publish-date').value;
+      alert('Blog published on ' + publishDate + '!');
+    }
+  </script>
+
+</body>
+</html>

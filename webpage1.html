@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MARACOT DEEP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #12232e;
+      color: #f4f4f4;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: fixed;
+      z-index: 1000;
+    }
+
+    header img {
+      max-width: 40px;
+      margin-right: 15px;
+      margin-left: 50px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #f4f4f4;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .jumbotron {
+      margin-top: 100px;
+      text-align: center;
+      padding: 60px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .jumbotron h1 {
+      font-size: 3.5rem;
+      color: #f7c873;
+      margin-bottom: 10px;
+    }
+
+    .caption {
+      font-size: 1.5rem;
+      color: #e4e4e4;
+    }
+
+    .footer {
+      background-color: #12232e;
+      color: #f4f4f4;
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-content a {
+      color: #f4f4f4;
+      text-decoration: none;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-content a:hover {
+      color: #f7c873;
+    }
+
+    .footer img {
+      max-width: 25px;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .footer img:hover {
+      transform: scale(1.2);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    form input, form button {
+      margin: 10px 0;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      width: 80%;
+    }
+
+    form input {
+      background: #f4f4f4;
+    }
+
+    form button {
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <img src='logo.png' alt="MARACOT DEEP Logo">
+      <p>Your Excellent Fintech Partner</p>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="page1.html">About</a>
+      <a href="page2 (2).html">Blogs</a>
+      <a href="page3.html">Create</a>
+      <a href="#" id="toggle-signin">Sign In</a>
+      <a href="#" id="toggle-signup">Sign Up</a>
+    </nav>
+  </header>
+
+
+  <div class="jumbotron">
+    <h1>MARACOT DEEP</h1>
+    <p class="caption">Learn. Innovate. Invest. Inspire.</p>
+  </div>
+
+
+  <div class="footer">
+    <div class="footer-content">
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Contact Us</a>
+        <img src="instagram.svg" alt="Instagram Logo">
+        <img src="facebook(1).svg" alt="Facebook Logo">
+        <img src="x-twitter.svg" alt="Twitter Logo">
+      </div>
+  </div>
+
+
+  <div id="signup-form" style="display: none;">
+    <form>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Create Password">
+      <input type="password" placeholder="Confirm Password">
+      <button>Sign Up</button>
+    </form>
+  </div>
+
+  <div id="signin-form" style="display: none;">
+    <form>
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <button>Sign In</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('toggle-signin').addEventListener('click', function () {
+      document.getElementById('signin-form').style.display = 'flex';
+      document.getElementById('signup-form').style.display = 'none';
+    });
+
+    document.getElementById('toggle-signup').addEventListener('click', function () {
+      document.getElementById('signup-form').style.display = 'flex';
+      document.getElementById('signin-form').style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>

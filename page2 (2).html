@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintech Blogs</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #04271e;
+            color: #fff;
+            text-align: center;
+            padding: 2em 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2em;
+        }
+
+        .search-container label {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .search-container input {
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            background-color: #04271e;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .search-container button:hover {
+            background-color: #005e49;
+        }
+
+        #blogsContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .blog {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog img {
+            max-width: 120px;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+        .blog h2 {
+            font-size: 1.5rem;
+            color: #04271e;
+            margin-bottom: 10px;
+        }
+
+        .blog p {
+            color: #777;
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+
+        .blog .content-text {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            max-height: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .blog .content-text:hover {
+            max-height: none;
+            overflow: visible;
+        }
+
+        footer {
+            background-color: #04271e;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #04271e;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #005e49;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fintech Blogs</h1>
+    </header>
+
+    <main>
+        <!-- Search Filters -->
+        <div class="search-container">
+            <div>
+                <label for="searchPublisher">Search by Publisher:</label>
+                <input type="text" id="searchPublisher" placeholder="Enter publisher">
+            </div>
+            <div>
+                <label for="searchTitle">Search by Title:</label>
+                <input type="text" id="searchTitle" placeholder="Enter title">
+            </div>
+            <button onclick="searchBlogs()">Search</button>
+        </div>
+
+        <!-- Blogs Section -->
+        <div id="blogsContainer">
+            <!-- Blogs will be dynamically added here -->
+        </div>
+
+        <nav>
+            <a href="webpage1.html">Home</a>
+        </nav>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Fintech Blogs. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Example data (replace with your actual blog data)
+        const blogs = [
+            { title: 'Financial Inclusion: Bridging the Gap', publisher: 'Nandhana P', image: 'blog1.jpg', content: 'Blockchain has the power to bring financial services to the unbanked and underbanked populations. With its decentralized and borderless nature, blockchain technology opens up opportunities for individuals in regions with limited access to traditional banking infrastructure.' },
+            { title: 'Fortifying Cybersecurity: The Role of Artificial Intelligence', publisher: 'Pooja M', image: 'blog2.jpeg', content: 'In the digital age, where data is the new currency, the need for robust cybersecurity has never been more critical. As cyber threats become more sophisticated, traditional security measures are often inadequate. Enter artificial intelligence, a game-changer in the ongoing battle to secure our digital world. Today, we delve into the symbiotic relationship between AI and cybersecurity.' },
+            // Add more blogs as needed
+        ];
+
+        // Function to display blogs
+        function displayBlogs(blogsToShow) {
+            const blogsContainer = document.getElementById('blogsContainer');
+            blogsContainer.innerHTML = '';
+
+            blogsToShow.forEach(blog => {
+                const blogElement = document.createElement('div');
+                blogElement.classList.add('blog');
+
+                const imageElement = document.createElement('img');
+                imageElement.src = blog.image;
+                blogElement.appendChild(imageElement);
+
+                const contentElement = document.createElement('div');
+                const titleElement = document.createElement('h2');
+                titleElement.textContent = blog.title;
+                const publisherElement = document.createElement('p');
+                publisherElement.textContent = `Published by: ${blog.publisher}`;
+                const contentTextElement = document.createElement('p');
+                contentTextElement.classList.add('content-text');
+                contentTextElement.textContent = blog.content;
+
+                contentElement.appendChild(titleElement);
+                contentElement.appendChild(publisherElement);
+                contentElement.appendChild(contentTextElement);
+
+                blogElement.appendChild(contentElement);
+                blogsContainer.appendChild(blogElement);
+            });
+        }
+
+        // Function to search blogs
+        function searchBlogs() {
+            const searchPublisherValue = document.getElementById('searchPublisher').value.toLowerCase();
+            const searchTitleValue = document.getElementById('searchTitle').value.toLowerCase();
+
+            const filteredBlogs = blogs.filter(blog => 
+                blog.publisher.toLowerCase().includes(searchPublisherValue) &&
+                blog.title.toLowerCase().includes(searchTitleValue)
+            );
+
+            displayBlogs(filteredBlogs);
+        }
+
+        // Initial display of all blogs
+        displayBlogs(blogs);
+    </script>
+</body>
+</html>
